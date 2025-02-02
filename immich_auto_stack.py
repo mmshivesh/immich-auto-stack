@@ -63,9 +63,9 @@ def apply_criteria(x: dict) -> list:
             # to categorize similar photos, and typically None represents the absence
             # of information.
             #
-            # A real scenario example: suppose some photos have not yet generated
-            # thumbnails. It would be undesirable to create a stack of all the photos
-            # whose thumbhash is None.
+            # A real scenario example: suppose Immich hasn't generated thumbnails for 
+            # some photos. It would be undesirable to create a stack of all the photos
+            # which have an "None" thumbhash.
             return []
         if "exactMatch" in item.keys() and item["exactMatch"] != value:
             # Use with SKIP_MATCH_MISS to exclude specific camera models for example

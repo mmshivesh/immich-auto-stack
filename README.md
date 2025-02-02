@@ -232,6 +232,31 @@ Maybe your desired stack items were scattered through time. Beware with images f
   }
 ]
 ```
+### 🔷 Only stack Specific Camera models:
+Will exclude all other camera EXIF entries except "FUJIFILM".
+```json
+[
+  {
+    "key": "exifInfo.make",
+    "exactMatch": "FUJIFILM" // Or  Canon, Nikon etc. 
+  },
+  {
+    "key": "originalFileName",
+    "regex": {
+      "key": "([A-Z]+[-_]?[0-9]{4}([-_][0-9]{4})?)([\\._-].*)?\\.[\\w]{3,4}$",
+      "index": 1
+    }
+  },
+  {
+    "key": "localDateTime",
+    "split": {
+      "key": "T",
+      "index": 0
+    }
+  }
+]
+```
+
 ### 🔷 Stack criteria based on date & time only:
 Won't work for bursts.
 ```json
